@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+}
+
+.iconContainer {
+  padding-top: 15px;
+  margin-right: var(--gap-md);
+}
+
+.iconContainer img {
+  width: 50px;
+}
+
+.btnGroup {
+  margin-top: var(--gap-md);
+}
+
+button + button {
+  margin-left: var(--gap-sm);
+}
+
+.margin {
+  margin-bottom: var(--gap-md);
+}

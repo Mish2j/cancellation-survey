@@ -1,0 +1,27 @@
+.radioContainer {
+  display: flex;
+  padding: 15px 15px 15px 20px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 30px;
+  margin: var(--gap-sm) auto;
+}
+
+.radioContainer > * {
+  cursor: pointer;
+}
+
+.radioContainer:has(input:checked) {
+  background: var(--color-light-blue);
+  border: none;
+}
+
+.radioContainer input {
+  margin-right: var(--gap-sm);
+}
+
+.radioContainer label {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: var(--color-black);
+}

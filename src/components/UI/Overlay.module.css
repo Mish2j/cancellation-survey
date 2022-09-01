@@ -1,0 +1,14 @@
+.overlay {
+  /* Overlay */
+
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: -3.85%;
+
+  background: #f9f9f9;
+  mix-blend-mode: normal;
+  opacity: 0.9;
+  backdrop-filter: blur(108.731px);
+}

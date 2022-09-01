@@ -1,17 +1,15 @@
+import Header from "./components/layout/Header";
+import Main from "./components/layout/Main";
+
 import "./index.css";
 
-function App() {
-  const names = ["hagob", "vrdo"];
-
-  let t: number;
-  t = 5;
-  const renderNames = names.map((name) => <p key={name}>{name}</p>);
-
+const App: React.FC = () => {
   return (
-    <div>
-      {renderNames}
-      <p>{t}</p>
-    </div>
+    <>
+      <Header />
+      <Main />
+    </>
   );
-}
+};
+
 export default App;
