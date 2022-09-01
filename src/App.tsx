@@ -1,14 +1,14 @@
-import Header from "./components/layout/Header";
-import Main from "./components/layout/Main";
+import PageContextProvider from "./store/page-provider";
+
+import Layout from "./components/layout/Layout";
 
 import "./index.css";
 
 const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <Main />
-    </>
+    <PageContextProvider>
+      <Layout />
+    </PageContextProvider>
   );
 };
 

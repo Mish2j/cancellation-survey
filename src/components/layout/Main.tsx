@@ -1,19 +1,21 @@
-import Container from "../UI/Container";
+import { useContext } from "react";
+import PageContext from "../../store/page-context";
+import { Page } from "../../constants/constants";
+
 import Discount from "../discount/Discount";
 import Survey from "../survey/Survey";
 
-import styles from "./Main.module.css";
-
 const Main: React.FC = () => {
-  return (
-    <main className={`${styles.main} wrapper`}>
-      <Container closeIcon={true}>
-        <Discount />
-      </Container>
+  const { activePage } = useContext(PageContext);
 
-      {/* <Container>
-        <Survey />
-      </Container> */}
+  return (
+    <main className={`wrapper`}>
+      {activePage === Page.MAIN ? null : (
+        <>
+          {activePage === Page.DISCOUNT && <Discount />}
+          {activePage === Page.SURVEY && <Survey />}
+        </>
+      )}
     </main>
   );
 };

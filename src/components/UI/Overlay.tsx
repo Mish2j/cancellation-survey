@@ -1,7 +1,7 @@
 import styles from "./Overlay.module.css";
 
-const Overlay: React.FC<{ children?: JSX.Element | JSX.Element[] }> = () => {
-  return <div className={styles.overlay}>Overlay</div>;
+const Overlay: React.FC = () => {
+  return <div className={styles.overlay}></div>;
 };
 
 export default Overlay;

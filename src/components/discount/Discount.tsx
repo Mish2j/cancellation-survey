@@ -1,16 +1,30 @@
+import { useContext } from "react";
+import PageContext from "../../store/page-context";
+import { Page } from "../../constants/constants";
+
 import Button from "../UI/Button";
 
+const logo = require("../../assets/images/Icon-discount.png");
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Discount.module.css";
 
-const logo = require("../../assets/images/Icon-discount.png");
-
 const Discount: React.FC = () => {
+  const { displayPage } = useContext(PageContext);
+
   const cancelSubHandler = (): void => {
-    console.log("ca");
+    displayPage(Page.SURVEY);
   };
+
+  const closeDiscountModalHandler = (): void => displayPage(Page.MAIN);
 
   return (
     <div className={styles.container}>
+      <div className={styles.closeBtn}>
+        <Button onClick={closeDiscountModalHandler}>
+          <FontAwesomeIcon icon={faXmark} />
+        </Button>
+      </div>
       <div className={styles.iconContainer}>
         <img src={logo} alt="discount icon" />
       </div>

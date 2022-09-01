@@ -1,6 +1,26 @@
 .header {
   height: 80px;
-  /* Color/ Primary / Black #333333 */
+  background-color: var(--color-header);
 
-  background: #333333;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li + li {
+  margin-left: var(--gap-md);
+}
+
+nav ul li a {
+  color: var(--color-white);
+  font-size: 16px;
 }

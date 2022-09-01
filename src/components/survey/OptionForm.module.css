@@ -1,0 +1,24 @@
+.notification {
+  background-color: var(--color-pink);
+  border-radius: 4px;
+  padding: 15px 20px;
+  display: flex;
+  margin: var(--gap-md) auto;
+}
+
+.notification p {
+  color: var(--color-black);
+}
+
+.notification svg {
+  color: var(--color-red);
+  font-style: normal;
+  font-size: 18px;
+  margin-right: var(--gap-md);
+  margin-top: 7px;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: space-between;
+}

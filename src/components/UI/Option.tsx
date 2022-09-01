@@ -1,12 +1,12 @@
 import styles from "./Option.module.css";
 
-interface OptionProps {
-  label: string;
-  id: string;
-  name: string;
-}
+import { OptionProps } from "../../types";
 
-const Option: React.FC<OptionProps> = ({ label, id, name }) => {
+const Option: React.FC<OptionProps> = ({ label, id, name, onChange }) => {
+  // const onValueChangeHandler = (event: Event) => {
+  //   onChange(event);
+  // };
+
   return (
     <div className={styles.radioContainer}>
       <input type="radio" id={id} name={name} />
