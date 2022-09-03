@@ -3,6 +3,7 @@
   padding-bottom: var(--gap-lg);
   border-bottom: 1px solid lightgray;
   display: flex;
+  align-items: center;
   width: 70%;
   max-width: 1050px;
 }

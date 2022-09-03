@@ -2,23 +2,22 @@ import { useState } from "react";
 import { FormEvent, useContext } from "react";
 import PageContext from "../../store/page-context";
 import { Page } from "../../constants/constants";
+import { SurveyOption } from "../../constants/constants";
 
 import Option from "../UI/Option";
 import Button from "../UI/Button";
 import Dropdown from "../UI/Dropdown";
 import Textarea from "../UI/Textarea";
+import Notification from "./Notification";
+import Selectable from "./Selectable";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faCircleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./OptionForm.module.css";
 
 const OptionForm = () => {
   const { displayPage } = useContext(PageContext);
-  const [cancelOption, setCancelOption] = useState<string>("");
+  const [selectedOption, setSelectedOption] = useState<string>("");
 
   const onBackHandler = (): void => {
     displayPage(Page.MAIN);
@@ -26,58 +25,98 @@ const OptionForm = () => {
 
   const onSubmitForm = (event: FormEvent) => {
     event.preventDefault();
+    alert("Your subscription was successfully canceled.");
+    displayPage(Page.MAIN);
   };
+
+  const optionHandler = (value: string) => {
+    setSelectedOption(value);
+  };
+
+  console.log(!selectedOption);
 
   return (
     <form onSubmit={onSubmitForm}>
       <Option
+        onStateChange={optionHandler}
+        value={SurveyOption.RECURRING_MEMBERSHIP}
+        name="cancelOption"
+        id="option-1"
         label="I didn't realize it was a recurring membership"
-        id="o1"
-        name="option"
-        // onChange={(e: string) => cancelOption(e)}
       />
-      <Option label="Found a better solution" id="o2" name="option" />
-
-      {/* <Textarea
-        id="better-solution-textarea"
-        placeholder="What is the better solution? If you don't mind sharing. Your feedback is much appreaciated!"
-      /> */}
-
-      <Option label="It's too expensive" id="o3" name="option" />
-      <Option label="Bugs, things not working properly" id="o5" name="option" />
-
-      <Dropdown label="Which product(s) did you have an issue with?" />
-
-      {/* <label htmlFor="bug-option-textarea">
-        <b>What was it?</b>
-        <FontAwesomeIcon icon={faCircleExclamation} />
-      </label> */}
-
-      <Textarea
-        id="product-issue-textarea"
-        label="What problem(s) did you encounter?"
-      />
-
       <Option
-        label="I just want to pay for a single plugin"
-        id="o6"
-        name="option"
+        onStateChange={optionHandler}
+        value={SurveyOption.BETTER_SOLUTION}
+        name="cancelOption"
+        id="option-2"
+        label="Found a better solution"
       />
-
-      <Option label="Not using WordPress anymore" id="o7" name="option" />
-      <Option label="Other" id="o8" name="option" />
-      <div className={styles.notification}>
-        <FontAwesomeIcon icon={faCircleExclamation} />
-        <p>
-          Are you absolutely sure you want to cancel? If you do you'll lose
-          access to so many cool things. And you'll lose the chance to stay on
-          this plan at the same cost ongoing (regardless of future price
-          increases).
-        </p>
-      </div>
+      {selectedOption === SurveyOption.BETTER_SOLUTION && (
+        <Textarea
+          id="better-solution-textarea"
+          placeholder="What is the better solution? If you don't mind sharing. Your feedback is much appreaciated!"
+        />
+      )}
+      <Option
+        onStateChange={optionHandler}
+        value={SurveyOption.TOO_EXPENSIVE}
+        name="cancelOption"
+        id="option-3"
+        label="It's too expensive"
+      />
+      <Option
+        onStateChange={optionHandler}
+        value={SurveyOption.BUGS}
+        name="cancelOption"
+        id="option-4"
+        label="Bugs, things not working properly"
+      />
+      {selectedOption === SurveyOption.BUGS && (
+        <>
+          <Dropdown label="Which product(s) did you have an issue with?" />
+          <Selectable />
+          <Textarea
+            id="product-issue-textarea"
+            label="What problem(s) did you encounter?"
+          />
+        </>
+      )}
+      <Option
+        onStateChange={optionHandler}
+        value={SurveyOption.SINGLE_PLUGIN}
+        name="cancelOption"
+        id="option-5"
+        label="I just want to pay for a single plugin"
+      />
+      <Option
+        onStateChange={optionHandler}
+        value={SurveyOption.NOT_USING}
+        name="cancelOption"
+        id="option-6"
+        label="Not using WordPress anymore"
+      />
+      <Option
+        onStateChange={optionHandler}
+        value={SurveyOption.OTHER}
+        name="cancelOption"
+        id="option-7"
+        label="Other"
+      />
+      <Notification />
       <div className={styles.btnGroup}>
-        <Button onClick={onBackHandler} label="Back" icon={faArrowLeft} />
-        <Button type="submit" label="Cancel Membership" />
+        <Button
+          variant="textIcon"
+          onClick={onBackHandler}
+          label="Back"
+          icon={faArrowLeft}
+        />
+
+        <Button
+          variant={selectedOption ? "danger" : "disabled"}
+          disabled={!selectedOption}
+          type="submit"
+          label="Cancel Membership"
+        />
       </div>
     </form>
   );

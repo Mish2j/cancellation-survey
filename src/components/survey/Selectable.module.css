@@ -1,0 +1,36 @@
+.container {
+  padding-bottom: var(--gap-md);
+  margin: var(--gap-md) auto;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.container fieldset legend {
+  cursor: default;
+  margin-bottom: var(--gap-sm);
+}
+
+.options {
+  display: flex;
+  border: 1px solid var(--color-border-light);
+  border-radius: 4px;
+  width: max-content;
+}
+
+.options input {
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+}
+
+.options label {
+  display: block;
+
+  cursor: pointer;
+  padding: 12px 15px;
+}
+
+.options input:checked + label {
+  color: var(--color-blue);
+  background-color: #d4e2ff;
+}

@@ -21,7 +21,11 @@ const Header: React.FC = () => {
               <a href="/">My Account</a>
             </li>
             <li>
-              <Button label="Cancel My Subscription" onClick={onPageChange} />
+              <Button
+                variant="primary"
+                label="Cancel My Subscription"
+                onClick={onPageChange}
+              />
             </li>
           </ul>
         </nav>

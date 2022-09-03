@@ -1,39 +1,83 @@
 import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleExclamation,
+  faAngleDown,
+  faAngleUp,
+} from "@fortawesome/free-solid-svg-icons";
+import QuestionBox from "./QuestionBox";
 
 import styles from "./Dropdown.module.css";
 
-interface Dropdown {
-  label?: string;
-  value?: string;
-  options?: { value: string; label: string }[];
-  onChange?: () => {};
-}
+const Dropdown: React.FC<{ label?: string }> = ({ label }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState<Boolean>(false);
+  const [selected, setSelected] = useState<number>(0);
 
-const Dropdown: React.FC<Dropdown> = ({ label, value, options, onChange }) => {
-  //   const [value, setValue] = useState("fruit");
+  const toggleDropdownHandler = () => {
+    setIsDropdownOpen((prevState) => !prevState);
+  };
 
-  //   const handleChange = (event: any) => {
-  //     setValue(event.target.value);
-  //   };
+  const userSelectHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelected((prevState) =>
+      event.target.checked
+        ? (prevState = prevState + 1)
+        : (prevState = prevState - 1)
+    );
+  };
 
   return (
-    <div className={styles.container}>
+    <QuestionBox>
       <label>
         <b>{label}</b>
         <FontAwesomeIcon icon={faCircleExclamation} />
       </label>
-      <select value={value} onChange={onChange}>
-        {/* {options?.map((option: { value: string; label: string }) => (
-          <option value={option.value}>{option.label}</option>
-        ))} */}
-        <option value="value">label</option>
-        <option value="value">label</option>
-        <option value="value">label</option>
-      </select>
-    </div>
+      <fieldset
+        className={`${styles.fieldset} ${isDropdownOpen && styles.open}`}
+      >
+        {isDropdownOpen && <legend>Select Product (s)</legend>}
+        <div className={styles.dropdown}>
+          <div className={styles.heading} onClick={toggleDropdownHandler}>
+            <p>
+              {selected
+                ? `${selected} products selected`
+                : "Select Product (s)"}
+              <FontAwesomeIcon
+                icon={isDropdownOpen ? faAngleUp : faAngleDown}
+              />
+            </p>
+          </div>
+          {isDropdownOpen && (
+            <div className={styles.dropdownOptions}>
+              <div>
+                <input
+                  id="product-1"
+                  type="checkbox"
+                  onChange={userSelectHandler}
+                />
+                <label htmlFor="product-1">Product #1</label>
+              </div>
+              <div>
+                <input
+                  id="product-2"
+                  type="checkbox"
+                  onChange={userSelectHandler}
+                />
+                <label htmlFor="product-2">Product #2</label>
+              </div>
+              <div>
+                <input
+                  id="product-3"
+                  type="checkbox"
+                  onChange={userSelectHandler}
+                />
+                <label htmlFor="product-3">Product #3</label>
+              </div>
+            </div>
+          )}
+        </div>
+      </fieldset>
+    </QuestionBox>
   );
 };
 

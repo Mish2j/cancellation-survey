@@ -1,34 +1,53 @@
 .btn {
+  border: 1px solid transparent;
   padding: 12.5px 15px;
   font-weight: 700;
   cursor: pointer;
-}
-
-.btn svg {
-  margin-right: calc(var(--gap-sm) / 2);
-}
-
-.btnLarge {
-  background-color: var(--color-blue);
   border-radius: 4px;
-  font-size: 13px;
-  line-height: 15px;
-  color: var(--color-white);
-
-  padding: 12.5px 15px;
-  font-weight: 700;
 }
 
-.btnSmall {
-  font-size: 13px;
-  line-height: 15px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+.btn.primary {
+  background: var(--color-blue);
+  border-radius: 4px;
   color: var(--color-white);
 }
 
-.btnText {
-  background-color: transparent;
+.btn.text {
   color: var(--color-blue);
+}
+
+.btn.icon {
+  padding: 0;
+}
+
+.btn.icon svg {
+  color: var(--color-dark-gray);
+}
+
+.btn.textIcon {
+  background-color: transparent;
+  border: 1px solid #ededed;
+}
+
+.btn.textIcon svg {
+  margin-right: var(--gap-sm);
+}
+
+.btn.iconBg {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 1px solid #ededed;
+  padding: 9px 13px;
+  font-size: 14px;
+}
+
+.btn.danger {
+  background-color: var(--color-red);
+  color: white;
+}
+
+.btn.disabled {
+  background-color: #f5f5f5;
+  border: 1px solid var(--color-border-dark);
+  cursor: default;
 }

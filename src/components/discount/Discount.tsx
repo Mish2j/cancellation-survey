@@ -5,25 +5,31 @@ import { Page } from "../../constants/constants";
 import Button from "../UI/Button";
 
 const logo = require("../../assets/images/Icon-discount.png");
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Discount.module.css";
 
 const Discount: React.FC = () => {
   const { displayPage } = useContext(PageContext);
 
-  const cancelSubHandler = (): void => {
+  const cancelSubHandler = () => {
     displayPage(Page.SURVEY);
   };
 
-  const closeDiscountModalHandler = (): void => displayPage(Page.MAIN);
+  const getDiscountHandler = () => {
+    alert("Enjoy 50% discount for 6 months");
+    displayPage(Page.MAIN);
+  };
+
+  const closeDiscountModalHandler = () => displayPage(Page.MAIN);
 
   return (
     <div className={styles.container}>
       <div className={styles.closeBtn}>
-        <Button onClick={closeDiscountModalHandler}>
-          <FontAwesomeIcon icon={faXmark} />
-        </Button>
+        <Button
+          variant="icon"
+          icon={faXmark}
+          onClick={closeDiscountModalHandler}
+        />
       </div>
       <div className={styles.iconContainer}>
         <img src={logo} alt="discount icon" />
@@ -46,8 +52,16 @@ const Discount: React.FC = () => {
         </p>
         <p>We hope you're staying safe and healthy!</p>
         <div className={styles.btnGroup}>
-          <Button label="50% OFF For 6 Months" />
-          <Button onClick={cancelSubHandler} label="No, thanks! I'll cancel" />
+          <Button
+            variant="primary"
+            label="50% OFF For 6 Months"
+            onClick={getDiscountHandler}
+          />
+          <Button
+            variant="text"
+            onClick={cancelSubHandler}
+            label="No, thanks! I'll cancel"
+          />
         </div>
       </div>
     </div>

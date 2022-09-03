@@ -2,7 +2,8 @@ export interface OptionProps {
   label: string;
   id: string;
   name: string;
-  onChange?: (event: Event) => string;
+  value: string;
+  onStateChange: Function;
 }
 
 export interface PageContextInterface {
@@ -10,17 +11,21 @@ export interface PageContextInterface {
   displayPage: (page: string) => void;
 }
 
-type buttonSize = "small" | "large";
 type buttonTypes = "button" | "submit" | "reset" | undefined;
+type btnVariant =
+  | "primary"
+  | "text"
+  | "icon"
+  | "textIcon"
+  | "iconBg"
+  | "danger"
+  | "disabled";
 
 export interface ButtonProps {
+  variant?: btnVariant;
   type?: buttonTypes;
-  size?: buttonSize;
-  outlined?: boolean;
   icon?: any;
   label?: string;
-  color?: string;
-  children?: React.ReactNode;
-  className?: string;
+  disabled?: boolean;
   onClick?: () => void;
 }

@@ -5,7 +5,6 @@ import { Page } from "../../constants/constants";
 import OptionForm from "./OptionForm";
 import Button from "../UI/Button";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./Survey.module.css";
@@ -20,9 +19,7 @@ const Survey = () => {
   return (
     <>
       <div className={styles.pageTitle}>
-        <Button onClick={onBackHandler}>
-          <FontAwesomeIcon icon={faAngleLeft} />
-        </Button>
+        <Button variant="iconBg" onClick={onBackHandler} icon={faAngleLeft} />
         <h2>Cancellation Survey</h2>
       </div>
       <div className={styles.container}>

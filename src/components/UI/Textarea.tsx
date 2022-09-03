@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "./Textarea.module.css";
+import QuestionBox from "./QuestionBox";
 
 interface TextareaProps {
   id?: string;
@@ -11,7 +12,7 @@ interface TextareaProps {
 
 const Textarea: React.FC<TextareaProps> = ({ id, label, placeholder }) => {
   return (
-    <div className={styles.container}>
+    <QuestionBox>
       {label && (
         <label htmlFor={id}>
           <b>{label}</b>
@@ -19,7 +20,7 @@ const Textarea: React.FC<TextareaProps> = ({ id, label, placeholder }) => {
         </label>
       )}
       <textarea placeholder={placeholder} id={id} rows={4}></textarea>
-    </div>
+    </QuestionBox>
   );
 };
 
