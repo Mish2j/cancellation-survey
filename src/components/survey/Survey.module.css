@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   width: 70%;
-  max-width: 1050px;
+  max-width: 105rem;
 }
 
 .pageTitle h2 {
@@ -14,14 +14,36 @@
 
 .container {
   background-color: var(--color-white);
-  border-radius: 10px;
-  padding: 45px 100px;
+  border-radius: 1rem;
+  padding: clamp(2rem, 3rem, 4.5rem) clamp(3.5rem, 6rem, 10rem);
   width: 70%;
-  max-width: 1050px;
+  max-width: 105rem;
   margin: var(--gap-lg) auto;
 }
 
 .container header {
   text-align: center;
   margin-bottom: var(--gap-md);
+}
+
+@media all and (max-width: 47.9875em) {
+  .pageTitle {
+    width: 85%;
+  }
+
+  .container {
+    width: 85%;
+    padding: 2rem 3.2rem;
+  }
+}
+
+@media all and (max-width: 35.9875em) {
+  .pageTitle {
+    width: 95%;
+    justify-content: center;
+  }
+
+  .container {
+    width: 95%;
+  }
 }

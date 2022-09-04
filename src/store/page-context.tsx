@@ -4,8 +4,7 @@ import { Page } from "../constants/constants";
 import { PageContextInterface } from "../types";
 
 const initialState: PageContextInterface = {
-  // activePage: Page.MAIN, DEFF
-  activePage: Page.SURVEY,
+  activePage: Page.MAIN,
   displayPage: (page: string): void => {},
 };
 

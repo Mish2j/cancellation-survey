@@ -1,7 +1,8 @@
 .btn {
   border: 1px solid transparent;
-  padding: 12.5px 15px;
+  padding: 1.25rem 1.5rem;
   font-weight: 700;
+  line-height: 1.523rem;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -37,8 +38,8 @@
   background: var(--color-white);
   color: var(--color-black);
   border: 1px solid #ededed;
-  padding: 9px 13px;
-  font-size: 14px;
+  padding: 0.9rem 1.3rem;
+  font-size: 1.4rem;
 }
 
 .btn.danger {

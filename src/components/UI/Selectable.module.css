@@ -11,9 +11,8 @@
 
 .options {
   display: flex;
-  border: 1px solid var(--color-border-light);
+  flex-wrap: wrap;
   border-radius: 4px;
-  width: max-content;
 }
 
 .options input {
@@ -21,16 +20,24 @@
   visibility: hidden;
   opacity: 0;
   width: 0;
+  height: 0;
 }
 
 .options label {
   display: block;
-
   cursor: pointer;
-  padding: 12px 15px;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--color-border-light);
 }
 
 .options input:checked + label {
   color: var(--color-blue);
   background-color: #d4e2ff;
+}
+
+@media all and (max-width: 35.9875em) {
+  .options {
+    flex-direction: column;
+    width: max-content;
+  }
 }

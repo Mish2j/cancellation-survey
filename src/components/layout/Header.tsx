@@ -1,16 +1,11 @@
 import { useContext } from "react";
-import PageContext from "../../store/page-context";
-import { Page } from "../../constants/constants";
+import ModalContext from "../../store/modal-context";
 
 import styles from "./Header.module.css";
 import Button from "../UI/Button";
 
 const Header: React.FC = () => {
-  const { displayPage } = useContext(PageContext);
-
-  const onPageChange = (): void => {
-    displayPage(Page.DISCOUNT);
-  };
+  const { openModal } = useContext(ModalContext);
 
   return (
     <header className={styles.header}>
@@ -24,7 +19,7 @@ const Header: React.FC = () => {
               <Button
                 variant="primary"
                 label="Cancel My Subscription"
-                onClick={onPageChange}
+                onClick={openModal}
               />
             </li>
           </ul>

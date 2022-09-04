@@ -30,8 +30,6 @@ const Button: React.FC<ButtonProps> = ({
       : ""
   }`.trim();
 
-  console.log(variant);
-
   return (
     <button
       type={type || "button"}

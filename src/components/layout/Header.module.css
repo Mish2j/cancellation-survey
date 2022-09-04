@@ -1,5 +1,5 @@
 .header {
-  height: 80px;
+  height: 8rem;
   background-color: var(--color-header);
 
   display: flex;
@@ -22,5 +22,22 @@ nav ul li + li {
 
 nav ul li a {
   color: var(--color-white);
-  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+@media all and (max-width: 35.9875em) {
+  .header {
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li + li {
+    margin-left: 0;
+    margin-top: var(--gap-md);
+  }
 }

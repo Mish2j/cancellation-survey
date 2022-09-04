@@ -8,9 +8,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import QuestionBox from "./QuestionBox";
 
+import { DropdownProps } from "../../types";
+
 import styles from "./Dropdown.module.css";
 
-const Dropdown: React.FC<{ label?: string }> = ({ label }) => {
+const Dropdown: React.FC<DropdownProps> = ({ title, labels, legend }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<Boolean>(false);
   const [selected, setSelected] = useState<number>(0);
 
@@ -26,54 +28,40 @@ const Dropdown: React.FC<{ label?: string }> = ({ label }) => {
     );
   };
 
+  const products = labels.map((label, index) => {
+    return (
+      <div key={label}>
+        <input
+          id={`checkbox-${index}`}
+          type="checkbox"
+          onChange={userSelectHandler}
+        />
+        <label htmlFor={`checkbox-${index}`}>{label}</label>
+      </div>
+    );
+  });
+
   return (
     <QuestionBox>
       <label>
-        <b>{label}</b>
+        <b>{title}</b>
         <FontAwesomeIcon icon={faCircleExclamation} />
       </label>
       <fieldset
         className={`${styles.fieldset} ${isDropdownOpen && styles.open}`}
       >
-        {isDropdownOpen && <legend>Select Product (s)</legend>}
+        {isDropdownOpen && <legend>{legend}</legend>}
         <div className={styles.dropdown}>
           <div className={styles.heading} onClick={toggleDropdownHandler}>
             <p>
-              {selected
-                ? `${selected} products selected`
-                : "Select Product (s)"}
+              {selected ? `${selected} product(s) selected` : legend}
               <FontAwesomeIcon
                 icon={isDropdownOpen ? faAngleUp : faAngleDown}
               />
             </p>
           </div>
           {isDropdownOpen && (
-            <div className={styles.dropdownOptions}>
-              <div>
-                <input
-                  id="product-1"
-                  type="checkbox"
-                  onChange={userSelectHandler}
-                />
-                <label htmlFor="product-1">Product #1</label>
-              </div>
-              <div>
-                <input
-                  id="product-2"
-                  type="checkbox"
-                  onChange={userSelectHandler}
-                />
-                <label htmlFor="product-2">Product #2</label>
-              </div>
-              <div>
-                <input
-                  id="product-3"
-                  type="checkbox"
-                  onChange={userSelectHandler}
-                />
-                <label htmlFor="product-3">Product #3</label>
-              </div>
-            </div>
+            <div className={styles.dropdownOptions}>{products}</div>
           )}
         </div>
       </fieldset>

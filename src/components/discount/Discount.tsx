@@ -1,36 +1,31 @@
 import { useContext } from "react";
+
+import ModalContext from "../../store/modal-context";
 import PageContext from "../../store/page-context";
 import { Page } from "../../constants/constants";
 
 import Button from "../UI/Button";
 
 const logo = require("../../assets/images/Icon-discount.png");
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Discount.module.css";
 
 const Discount: React.FC = () => {
   const { displayPage } = useContext(PageContext);
+  const { closeModal } = useContext(ModalContext);
 
   const cancelSubHandler = () => {
+    closeModal();
     displayPage(Page.SURVEY);
   };
 
   const getDiscountHandler = () => {
+    closeModal();
     alert("Enjoy 50% discount for 6 months");
     displayPage(Page.MAIN);
   };
 
-  const closeDiscountModalHandler = () => displayPage(Page.MAIN);
-
   return (
-    <div className={styles.container}>
-      <div className={styles.closeBtn}>
-        <Button
-          variant="icon"
-          icon={faXmark}
-          onClick={closeDiscountModalHandler}
-        />
-      </div>
+    <>
       <div className={styles.iconContainer}>
         <img src={logo} alt="discount icon" />
       </div>
@@ -64,7 +59,7 @@ const Discount: React.FC = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

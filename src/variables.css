@@ -5,20 +5,24 @@
   --color-black: #000000;
   --color-dark-gray: #555555;
   --color-pink: #feecec;
-  --color-white: #ffffff; /* #F9F9F9 */
+  --color-white: #ffffff;
   --color-border-light: #f2f2f2;
   --color-border-dark: #e6e6e6;
   --color-header: #333333;
   --color-overlay: #f9f9f9;
+  --color-bg: #e5e5e5;
 
-  --gap-sm: 10px;
-  --gap-md: 25px;
-  --gap-lg: 50px;
-
-  --font-regular: 16px;
-  --font-sm: 13px;
-  --font-md: 15px;
-  --font-lg: 13px;
+  --gap-sm: 1rem;
+  --gap-md: 2.5rem;
+  --gap-lg: 5rem;
 
   --body-max-widht: 1800px;
+
+  /* REMOVE */
+  --screen-xs: 20em; /* 320px */
+  --screen-sm: 35.9875em; /* 576px -0.2px */
+  --screen-md: 47.9875em; /* 768px -0.2px */
+  --screen-lg: 61.9875em; /* 992px -0.2px */
+  --screen-xl: 74.9875em; /* 1200px -0.2px */
+  --screen-xxl: 119.9875em; /* 1920px -0.2px */
 }

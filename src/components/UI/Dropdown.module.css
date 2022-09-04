@@ -8,9 +8,9 @@
 }
 
 .fieldset legend {
-  margin-left: 10px;
+  margin-left: 1rem;
   padding: 0 var(--gap-sm);
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--color-blue);
 }
 
@@ -19,7 +19,7 @@
 }
 
 .heading {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   cursor: pointer;
 }
 
@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 1.5rem;
   color: var(--color-dark-gray);
 }
 
@@ -36,18 +36,18 @@
 }
 
 .dropdown svg {
-  font-size: 13px;
+  font-size: 1.3rem;
 }
 
 .dropdownOptions {
-  position: absolute;
+  position: relative;
   background-color: var(--color-white);
-  width: 100.25%;
-  left: -1px;
-  top: 50px;
-
-  border: 1px solid var(--color-blue);
+  width: 100%;
+  top: 0;
+  border-top: 1px solid var(--color-blue);
   border-radius: 0px 0px 3px 3px;
+  height: 12rem;
+  overflow: auto;
 }
 
 .dropdownOptions > div {
@@ -63,8 +63,8 @@
   width: 100%;
   height: 100%;
   margin-bottom: 0;
-  padding: 10px 20px;
-  padding-left: 45px;
+  padding: 1rem 2rem;
+  padding-left: 4.5rem;
   cursor: pointer;
   position: relative;
 }
@@ -72,5 +72,5 @@
 .dropdownOptions input[type="checkbox"] {
   position: absolute;
   margin: 0;
-  left: 20px;
+  left: 2rem;
 }

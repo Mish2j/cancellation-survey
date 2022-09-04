@@ -2,3 +2,14 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media all and (max-width: 35.9875em) {
+  .btnGroup {
+    flex-direction: column;
+  }
+
+  .btnGroup button + button {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+}

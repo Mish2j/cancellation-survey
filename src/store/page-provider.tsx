@@ -7,12 +7,9 @@ import { PageContextInterface } from "../types";
 const PageContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // const [page, setPage] = useState<string>(Page.MAIN); DEF
-  const [page, setPage] = useState<string>(Page.SURVEY);
+  const [page, setPage] = useState<string>(Page.MAIN);
 
-  const onPageChange = (page: string): void => {
-    setPage(page);
-  };
+  const onPageChange = (page: string) => setPage(page);
 
   const pageCtxValue: PageContextInterface = {
     activePage: page,

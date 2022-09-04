@@ -9,7 +9,7 @@ import Button from "../UI/Button";
 import Dropdown from "../UI/Dropdown";
 import Textarea from "../UI/Textarea";
 import Notification from "./Notification";
-import Selectable from "./Selectable";
+import Selectable from "../UI/Selectable";
 
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
@@ -19,7 +19,7 @@ const OptionForm = () => {
   const { displayPage } = useContext(PageContext);
   const [selectedOption, setSelectedOption] = useState<string>("");
 
-  const onBackHandler = (): void => {
+  const onBackHandler = () => {
     displayPage(Page.MAIN);
   };
 
@@ -32,8 +32,6 @@ const OptionForm = () => {
   const optionHandler = (value: string) => {
     setSelectedOption(value);
   };
-
-  console.log(!selectedOption);
 
   return (
     <form onSubmit={onSubmitForm}>
@@ -73,8 +71,16 @@ const OptionForm = () => {
       />
       {selectedOption === SurveyOption.BUGS && (
         <>
-          <Dropdown label="Which product(s) did you have an issue with?" />
-          <Selectable />
+          <Dropdown
+            labels={["Product #1", "Product #2", "Product #3", "Product #4"]}
+            legend="Select Product (s)"
+            title="Which product(s) did you have an issue with?"
+          />
+          <Selectable
+            legend="What was it?"
+            labels={["One Major Problem", "Various things"]}
+            optionName="selectable"
+          />
           <Textarea
             id="product-issue-textarea"
             label="What problem(s) did you encounter?"

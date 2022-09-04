@@ -12,7 +12,7 @@ import styles from "./Survey.module.css";
 const Survey = () => {
   const { displayPage } = useContext(PageContext);
 
-  const onBackHandler = (): void => {
+  const onBackHandler = () => {
     displayPage(Page.MAIN);
   };
 

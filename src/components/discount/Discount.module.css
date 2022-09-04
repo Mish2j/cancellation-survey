@@ -1,31 +1,19 @@
-.container {
-  display: flex;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border-light);
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.05);
-  border-radius: 11px;
-  padding: 45px 35px;
-  max-width: 700px;
-}
-
 .iconContainer {
-  padding-top: 15px;
+  padding-top: 1.5rem;
   margin-right: var(--gap-md);
+  width: 35%;
 }
 
 .iconContainer img {
-  width: 50px;
+  width: 6.5rem;
 }
 
 .btnGroup {
+  display: flex;
   margin-top: var(--gap-md);
 }
 
-button + button {
+.btnGroup button + button {
   margin-left: var(--gap-sm);
 }
 
@@ -33,15 +21,25 @@ button + button {
   margin-bottom: var(--gap-md);
 }
 
-.closeBtn {
-  position: absolute;
-  right: 28px;
-  top: 28px;
-  cursor: pointer;
+@media all and (max-width: 47.9875em) {
+  .iconContainer {
+    width: auto;
+    padding-top: 0;
+    margin-right: 0;
+    margin-bottom: var(--gap-md);
+  }
 }
 
-.closeBtn svg {
-  font-weight: 400;
-  font-size: 16px;
-  color: var(--color-dark-gray);
+@media all and (max-width: 35.9875em) {
+  .container h2 {
+    margin-bottom: var(--gap-sm);
+  }
+  .btnGroup {
+    flex-direction: column;
+  }
+
+  .btnGroup button + button {
+    margin-left: 0;
+    margin-top: var(--gap-sm);
+  }
 }

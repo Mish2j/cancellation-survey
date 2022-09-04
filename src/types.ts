@@ -11,6 +11,12 @@ export interface PageContextInterface {
   displayPage: (page: string) => void;
 }
 
+export interface ModalContextInterface {
+  isOpen: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+}
+
 type buttonTypes = "button" | "submit" | "reset" | undefined;
 type btnVariant =
   | "primary"
@@ -28,4 +34,22 @@ export interface ButtonProps {
   label?: string;
   disabled?: boolean;
   onClick?: () => void;
+}
+
+export interface DropdownProps {
+  title: string;
+  labels: string[];
+  legend: string;
+}
+
+export interface SelectableProps {
+  legend: string;
+  labels: string[];
+  optionName: string;
+}
+
+export interface TextareaProps {
+  id?: string;
+  label?: string;
+  placeholder?: string;
 }

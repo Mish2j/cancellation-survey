@@ -1,7 +1,7 @@
 .notification {
   background-color: var(--color-pink);
-  border-radius: 4px;
-  padding: 15px 20px;
+  border-radius: 0.4rem;
+  padding: 1.5rem 2rem;
   display: flex;
   margin: var(--gap-md) auto;
 }
@@ -13,7 +13,17 @@
 .notification svg {
   color: var(--color-red);
   font-style: normal;
-  font-size: 18px;
+  font-size: 1.8rem;
   margin-right: var(--gap-md);
-  margin-top: 7px;
+  margin-top: 0.7rem;
+}
+
+@media all and (max-width: 35.9875em) {
+  .notification {
+    flex-direction: column;
+  }
+
+  .notification svg {
+    margin: 0 auto 1rem auto;
+  }
 }

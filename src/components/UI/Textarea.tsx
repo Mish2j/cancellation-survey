@@ -4,11 +4,7 @@ import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Textarea.module.css";
 import QuestionBox from "./QuestionBox";
 
-interface TextareaProps {
-  id?: string;
-  label?: string;
-  placeholder?: string;
-}
+import { TextareaProps } from "../../types";
 
 const Textarea: React.FC<TextareaProps> = ({ id, label, placeholder }) => {
   return (
@@ -19,7 +15,12 @@ const Textarea: React.FC<TextareaProps> = ({ id, label, placeholder }) => {
           <FontAwesomeIcon icon={faCircleExclamation} />
         </label>
       )}
-      <textarea placeholder={placeholder} id={id} rows={4}></textarea>
+      <textarea
+        className={styles.textarea}
+        placeholder={placeholder}
+        id={id}
+        rows={4}
+      ></textarea>
     </QuestionBox>
   );
 };

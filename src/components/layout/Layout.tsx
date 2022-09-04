@@ -1,18 +1,14 @@
-import { useContext } from "react";
-
-import PageContext from "../../store/page-context";
-import { Page } from "../../constants/constants";
-
 import Header from "../../components/layout/Header";
 import Main from "../../components/layout/Main";
-import Overlay from "../../components/UI/Overlay";
+import Modal from "../UI/Modal";
+import Discount from "../discount/Discount";
 
 const Layout: React.FC = () => {
-  const { activePage } = useContext(PageContext);
-
   return (
     <>
-      {activePage === Page.DISCOUNT && <Overlay />}
+      <Modal>
+        <Discount />
+      </Modal>
       <Header />
       <Main />
     </>
