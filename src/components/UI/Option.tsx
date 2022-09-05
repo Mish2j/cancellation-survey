@@ -1,18 +1,20 @@
-import styles from "./Option.module.css";
+import { memo } from "react";
 
 import { OptionProps } from "../../types";
+
+import styles from "./Option.module.css";
 
 const Option: React.FC<OptionProps> = ({
   label,
   id,
   name,
   value,
-  onStateChange,
+  onOptionChange,
 }) => {
   const onChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    onStateChange(event.target.value);
+    onOptionChange(event.target.value);
   };
 
   return (
@@ -29,4 +31,4 @@ const Option: React.FC<OptionProps> = ({
   );
 };
 
-export default Option;
+export default memo(Option);

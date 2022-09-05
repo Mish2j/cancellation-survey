@@ -15,28 +15,42 @@ import styles from "./Dropdown.module.css";
 const Dropdown: React.FC<DropdownProps> = ({ title, labels, legend }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<Boolean>(false);
   const [selected, setSelected] = useState<number>(0);
+  const [checkedState, setCheckedState] = useState<boolean[]>(
+    new Array(labels.length).fill(false)
+  );
 
   const toggleDropdownHandler = () => {
     setIsDropdownOpen((prevState) => !prevState);
   };
 
-  const userSelectHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const userSelectHandler = (
+    position: number,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSelected((prevState) =>
       event.target.checked
         ? (prevState = prevState + 1)
         : (prevState = prevState - 1)
     );
+
+    const updatedCheckedState = checkedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedState(updatedCheckedState);
   };
 
-  const products = labels.map((label, index) => {
+  const items = labels.map((label, index) => {
     return (
       <div key={label}>
         <input
-          id={`checkbox-${index}`}
+          name={label}
+          id={`checkbox-${index + 1}`}
           type="checkbox"
-          onChange={userSelectHandler}
+          onChange={userSelectHandler.bind(null, index)}
+          checked={checkedState[index]}
         />
-        <label htmlFor={`checkbox-${index}`}>{label}</label>
+        <label htmlFor={`checkbox-${index + 1}`}>{label}</label>
       </div>
     );
   });
@@ -61,7 +75,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, labels, legend }) => {
             </p>
           </div>
           {isDropdownOpen && (
-            <div className={styles.dropdownOptions}>{products}</div>
+            <div className={styles.dropdownOptions}>{items}</div>
           )}
         </div>
       </fieldset>

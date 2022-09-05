@@ -29,21 +29,21 @@ const OptionForm = () => {
     displayPage(Page.MAIN);
   };
 
-  const optionHandler = (value: string) => {
+  const optionChangeHandler = (value: string) => {
     setSelectedOption(value);
   };
 
   return (
     <form onSubmit={onSubmitForm}>
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.RECURRING_MEMBERSHIP}
         name="cancelOption"
         id="option-1"
         label="I didn't realize it was a recurring membership"
       />
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.BETTER_SOLUTION}
         name="cancelOption"
         id="option-2"
@@ -56,14 +56,14 @@ const OptionForm = () => {
         />
       )}
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.TOO_EXPENSIVE}
         name="cancelOption"
         id="option-3"
         label="It's too expensive"
       />
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.BUGS}
         name="cancelOption"
         id="option-4"
@@ -88,21 +88,21 @@ const OptionForm = () => {
         </>
       )}
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.SINGLE_PLUGIN}
         name="cancelOption"
         id="option-5"
         label="I just want to pay for a single plugin"
       />
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.NOT_USING}
         name="cancelOption"
         id="option-6"
         label="Not using WordPress anymore"
       />
       <Option
-        onStateChange={optionHandler}
+        onOptionChange={optionChangeHandler}
         value={SurveyOption.OTHER}
         name="cancelOption"
         id="option-7"

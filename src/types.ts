@@ -3,7 +3,7 @@ export interface OptionProps {
   id: string;
   name: string;
   value: string;
-  onStateChange: Function;
+  onOptionChange: Function;
 }
 
 export interface PageContextInterface {
