@@ -6,12 +6,12 @@ module.exports = {
   entry: "./src/index.tsx",
   devtool: "inline-source-map",
   output: {
-    path: path.join(__dirname, "./dist"),
+    path: path.join(__dirname, "/dist"),
     filename: "bundle.js",
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "./dist"),
+      directory: path.resolve(__dirname, "/dist"),
     },
   },
   module: {
@@ -41,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./dist/index.html",
+      template: "./src/index.html",
     }),
   ],
 };
